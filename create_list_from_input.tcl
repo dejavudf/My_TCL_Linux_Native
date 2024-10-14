@@ -1,8 +1,3 @@
-# written by: Udaya Shankar S
-# Date: 1.12.2022
-# TCL procedure to create a list by read an element at a time from the user (during execution of the script) and also simultaneously display the number of elements in the list without using # llength command.
-# version 1.0
-
 
 proc list_create {} {
  set out_list {}
@@ -22,4 +17,4 @@ proc list_create {} {
 
 list_create
 
-  #  if { [regexp -all { ^[A-Za-z]+$ } $in ] == 1} {
+
