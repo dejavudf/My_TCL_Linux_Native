@@ -1,8 +1,3 @@
-#Written By: Udaya Shankar S
-#Dated: 4.11.2022
-# TCL script to create a nested loop to display multiples of 5 and 10
-# Version 1.0
-
 for { set a 0 } { $a <= 50 } { incr a } {
   for { set b $a } {$b <= $a} {incr b} {
     if {[expr $a%5 == 0 ] && [expr $a%10 == 0 ] } {
