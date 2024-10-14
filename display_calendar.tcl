@@ -1,12 +1,7 @@
-#Written by: Udaya Shankar S
-#Date:30.11.2022
-# TCL Script to display the Month (December) of Calender [simple way]
-#Version:1.0
+
 
 set systemTime [clock seconds]
 
-#puts [clock format $systemTime -format {Today is: %A, the %d of %B, %Y}]
-#puts [clock format $systemTime -format {Today is: %A, the %d of %B, %Y}]
 puts "\t\t December 2022 Time:[clock format $systemTime -format %H:%M:%S]"
 puts "sun\tMon\tTue\tWed\tThurs\tFri\tSat"
 set t [clock scan {12/19/2022}]
@@ -46,12 +41,5 @@ set u31 [clock scan {+12 days} -base $t]
 
 puts -nonewline "\t \t \t \t [clock format $u1 -format "%d"] \t [clock format $u2 -format "%d"] \t [clock format $u3 -format "%d"] \n [clock format $u4 -format "%d"] \t [clock format $u5 -format "%d"] \t [clock format $u6 -format "%d"] \t [clock format $u7 -format "%d"] \t [clock format $u8 -format "%d"] \t [clock format $u9 -format "%d"] \t [clock format $u10 -format "%d"] \n [clock format $u11 -format "%d"] \t [clock format $u12 -format "%d"] \t [clock format $u13 -format "%d"] \t [clock format $u14 -format "%d"] \t [clock format $u15 -format "%d"] \t [clock format $u16 -format "%d"] \t [clock format $u17 -format "%d"] \n [clock format $u18 -format "%d"] \t [clock format $u19 -format "%d"] \t [clock format $u20 -format "%d"] \t [clock format $u21 -format "%d"] \t [clock format $u22 -format "%d"] \t [clock format $u23 -format "%d"] \t [clock format $u24 -format "%d"] \n [clock format $u25 -format "%d"] \t [clock format $u26 -format "%d"] \t [clock format $u27 -format "%d"] \t [clock format $u28 -format "%d"] \t [clock format $u29 -format "%d"] \t [clock format $u30 -format "%d"] \t [clock format $u31 -format "%d"]\n"
 
-# SampleOutput
-#         December 2022 Time:11:24:02
-#sun      Mon     Tue     Wed     Thurs   Fri    Sat
-#                                 01      02      03 
-# 04      05      06      07      08      09      10 
-# 11      12      13      14      15      16      17 
-# 18      19      20      21      22      23      24 
-# 25      26      27      28      29      30      31
+
 
