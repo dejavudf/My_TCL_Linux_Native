@@ -1,6 +1,3 @@
-Written by: Udaya Shankar S
-Dated: 15.11.2022
-Version: 1.0
 
 proc factorial {a} {
   set s 1
