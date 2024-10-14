@@ -1,7 +1,3 @@
-#Written by: Udaya Shankar S
-#Dated: 8.11.2022
-#TCL script to pick two elements (integers) simultaneously in list and display the largest among them, iterate throughout all the elements in the list
-#Version:1.0
 
 set in {a z d e f x y}
 #set in {20 12 5 71 35}
