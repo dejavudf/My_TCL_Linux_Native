@@ -1,7 +1,3 @@
-#Written by: Udaya Shankar S
-#Dated: 3.10.2022
-# TCL script to display the list of empty folders(directories) and files.
-#Version 1.0
 
 set f [glob *]
 puts $f
