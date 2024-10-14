@@ -1,7 +1,3 @@
-# written by: Udaya Shankar S
-# Date: 1.12.2022
-# TCL procedure to determine whether two files are same or different (contents inside the file) and also display the data where they differs.
-# version 1.0
 
 proc comparison {file1 file2} {
  set f [open $file1 r]
@@ -24,10 +20,6 @@ proc comparison {file1 file2} {
  }
 }
 
-##Same Files Comparison
-#If both files are same, output shows nothing
 comparison myfile.txt myfile1_same.txt
 puts "#############################"
-##Different File Comparison
-#If both files are differnt output display the lines that are different in two files
 comparison myfile.txt myfile1_diff.txt
