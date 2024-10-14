@@ -1,9 +1,3 @@
-#Written by : Udaya Shankar S
-#dated: 9.11.2022
-#TCL script to check whether the input string is palindrome or not.
-#Version 1.0
-
-#Palindrome Words: redivider, deified, civic, radar, level, rotor, kayak, reviver, racecar, madam, and refer
 
 set in "reviver"
 set inr [string reverse $in]
