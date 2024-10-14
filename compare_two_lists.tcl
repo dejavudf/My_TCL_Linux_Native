@@ -1,7 +1,4 @@
-#Written by : Udaya Shankar S
-#dated: 9.11.2022
-#TCL script to find the difference between the two lists
-#Version 1.0
+
 
 set a { 10 12 14 16 18 20 21}
 set b { 10 12 15 16 18 20 25 27 28}
