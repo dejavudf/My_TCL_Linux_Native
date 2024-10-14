@@ -1,7 +1,3 @@
-# Written by: udaya Shankar S
-# Date: 20.11.2022
-# TCL Procedure to write 1 to 100 & A to Z in document
-# Version: 1.0
 
 proc writeAZ {} {
 set fout [open "output1.txt" w+]
