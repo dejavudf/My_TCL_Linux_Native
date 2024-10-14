@@ -1,8 +1,3 @@
-#Written by: Udaya Shankar S
-#Dated: 8.11.2022
-#TCL script to convert the all upper to lower case and lower to upper case in string
-#Version:1.0
-
 set in "Tcl Scripting"
 set l [list]
 for {set i 0} {$i < [string length $in]} { incr i} {
