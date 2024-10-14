@@ -1,7 +1,3 @@
-#Written by : Udaya Shankar S
-#dated: 9.11.2022
-#TCL Script to convert an input string to acronym.
-#Version 1.0
 
 set in "Tool Command Language"
 set a [split $in]
