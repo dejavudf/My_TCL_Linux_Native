@@ -1,7 +1,3 @@
-#Written by : Udaya Shankar S
-#dated: 8.11.2022
-#TCL script to change the first character of each word to upper case in a string.
-#Version 1.0
 
 
 set in "Tcl is a cross platform language with full unicode support."
