@@ -1,8 +1,3 @@
-#Written by : Udaya Shankar S
-#dated: 9.11.2022
-#TCL script to find the difference between the two strings (str1 & str2)
-#Version 1.0
-
 set str1 "Tcl is a cross platform language with full unicode support."
 set str2 "Tcl is an direct platform language with full support."
 set a [split $str1]
