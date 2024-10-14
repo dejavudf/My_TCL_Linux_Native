@@ -1,7 +1,3 @@
-#Written by : Udaya Shankar S
-#dated: 11.11.2022
-#TCL script to convert Binary to Hexadecimal
-#Version 1.0
 
 set a "11110101100101111"
 set l [string length $a]
