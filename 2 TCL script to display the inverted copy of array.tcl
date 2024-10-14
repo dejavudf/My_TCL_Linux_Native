@@ -1,7 +1,3 @@
-#written by: Udaya Shankar S
-#Dated: 7.11.2022
-# Write a TCL script to display the inverted copy of array.
-#Version 1.0
 
 array set lan {
       21 TCL
