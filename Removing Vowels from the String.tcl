@@ -1,10 +1,3 @@
-Written by: Udaya Shankar S
-dated: 25.9.2022
-Version: 1.0
-
-# Write a TCL script to remove the vowels in the inut string
-# Find also positions of vowels in the input string
-
 ##Method 1:
 
 set v {e a i o u}
@@ -17,9 +10,7 @@ for {set j 0} { $j < $l } { incr j} {
     set m [string replace $m $r1 $r1 " "]   ; # replace the vowel letters with " " in variable m
     set m [string replace $m $r2 $r2 " "]   ; # replace the vowel letters with " " in variable m
 }
-# puts $m
-# puts [concat $m "" ""]
-# puts [string trim $m]
+
 puts [string map {" " ""} $m];  ; # replaces white spaces with blankspaces
 
 
