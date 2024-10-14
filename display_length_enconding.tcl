@@ -1,7 +1,3 @@
-#Written by : Udaya Shankar S
-#dated: 11.11.2022
-#TCL Script to perform run length Encoding
-#Version 1.0
 
 set in "assignment"
 puts [set a [split $in {}]]
