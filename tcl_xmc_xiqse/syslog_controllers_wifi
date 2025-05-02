@@ -53,7 +53,15 @@ IF ([string equal $vendor "enterprises.14823"]) THEN
 ENDIF
 
 ###configura syslog se controladora é cisco
-#config somente via WEB GUI
+IF ([string equal $deviceId "1020"]) THEN
+    CLI config> logging syslog host 10.22.0.135
+    CLI config> logging syslog host 10.22.0.135
+    CLI config> logging syslog host 10.22.0.135
+    CLI config> logging syslog level informational
+    CLI logging syslog facility local0
+    CLI save config
+    CLI y
+ENDIF
 
 puts $VAR_FINAL
 
