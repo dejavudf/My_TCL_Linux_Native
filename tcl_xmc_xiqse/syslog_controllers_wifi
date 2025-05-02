@@ -38,10 +38,10 @@ IF ([string equal $vendor "enterprises.4329"]) THEN
     CLI stationevents enable
 ENDIF
 
-###configura syslog se controladora é aruba (só aceita um servidor apenas)
+###configura syslog se controladora é aruba
 IF ([string equal $vendor "enterprises.14823"]) THEN
     #nova config
-    #syslog-server $VAR_SRV_SIEM
+    #syslog-server $VAR_SRV_SIEM $VAR_SRV_XMC $VAR_SRV_XIQSE
     syslog-level info
     syslog-level info ap-debug
     syslog-level info network
