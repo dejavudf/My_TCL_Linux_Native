@@ -1,0 +1,59 @@
+### script version 1.0 - alexsandro
+###declara variaveis dos servidores syslog (total 3)
+set var VAR_SRV_XMC 10.22.0.135
+set var VAR_SRV_XIQSE 10.95.0.52
+#set var VAR_SRV_SIEM 10.150.0.19
+set var VAR_FINAL "Fim do Script"
+
+#print info do dispositivo antes de inicar o script (ajuda no diag)
+puts "IP: $deviceIP"
+puts "ID Vendor: $vendor"
+puts "ID Device Vendor: $deviceId"
+puts "Device Type: $deviceType"
+puts "Device Family: $family"
+puts "Firmware/SO Version $deviceSoftwareVer"
+puts "MIB SysOid: $deviceSysOid"
+
+### configura syslog se controladora é wing
+IF ([string equal $vendor "enterprises.388"]) THEN
+    #nova config
+    CLI enable
+    CLI self
+    CLI logging on
+    CLI logging syslog info
+    CLI logging host $VAR_SRV_XIQSE
+    CLI logging host $VAR_SRV_XMC
+    #CLI logging host $VAR_SRV_SIEM
+    CLI end
+    CLI commit write
+ENDIF
+
+###configura syslog se controladora é identify
+IF ([string equal $vendor "enterprises.4329"]) THEN
+    #nova config
+    CLI syslog
+    CLI syslogip 1 $VAR_SRV_XMC enable
+    CLI syslogip 2 $VAR_SRV_XIQSE enable
+    #CLI syslogip 3 $VAR_SRV_SIEM enable
+    CLI stationevents enable
+ENDIF
+
+###configura syslog se controladora é aruba (só aceita um servidor apenas)
+IF ([string equal $vendor "enterprises.14823"]) THEN
+    #nova config
+    #syslog-server $VAR_SRV_SIEM
+    syslog-level info
+    syslog-level info ap-debug
+    syslog-level info network
+    syslog-level info security
+    syslog-level info system
+    syslog-level info user
+    syslog-level info user-debug
+    syslog-level info wireless
+ENDIF
+
+###configura syslog se controladora é cisco
+#config somente via WEB GUI
+
+puts $VAR_FINAL
+
