@@ -98,12 +98,19 @@ else
 
 set var CLI.OUT " "
 CLI {show system | grep ignore-case "System MAC:"}
+### quebra texto do resultado em linhas
 set VAR_RESULT $TCL(split ${CLI.OUT} "\n")
+### procura id (index) da linha onde tem a palavra chave "MAC:"
 set VAR_LINE_NUMBER $TCL(lsearch -glob $VAR_RESULT *MAC:*)
+### some o valor da linha + 1, pois o próprio comando tem o valor
 set VAR_LINE_NUMBER [expr {$VAR_LINE_NUMBER + 1}]
+### usa o numero da linha pra pegar o texto
 set VAR_TEXT $TCL(lindex $VAR_RESULT $VAR_LINE_NUMBER)
+### troca o delimitado da linha de texto para padrao split
 set VAR_PREBLOCK [string map {"MAC:" "\;"} $VAR_TEXT]
+### separa o text por delimitado ";"
 set VAR_BLOCK [split $VAR_PREBLOCK ";"]
+### pega valor na coluna 2
 set VAR_MAC [lindex $VAR_BLOCK 1]
 echo $VAR_MAC
 
