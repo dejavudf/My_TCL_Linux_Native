@@ -49,3 +49,11 @@ if {[string match "*enabled*" $CLI.OUTt]} {
 } elseif {[string match "*disabled*" $CLI.OUTt]} {
     CLI ls
 }
+
+#The following script get mac address and set variable:
+set var CLI.OUT " "
+CLI {show system | grep ignore-case "System MAC:"}
+set var VAR_MAC [lindex $CLI.OUT 1]
+puts $VAR_MAC
+echo $VAR_MAC
+
