@@ -1,0 +1,47 @@
+CLI Scripting Examples
+The following script creates 100 VLANS with IP Addresses from 10.1.1.1/16 to 10.100.1.1/16:
+
+Copy this code
+enable cli scripting
+Set var count 1
+while ($count < 101) do
+Create vlan v$count
+configure vlan v$count ipaddress 10.$(count).1.1/16
+set var count ($count + 1)
+endwhile
+show vlan
+The following script introduces a 60-second delay when executed:
+
+Copy this code
+set var temp $TCL(after [expr 60 *1000])
+The following script displays the date and time:
+
+Copy this code
+set var CLI.OUT " "
+show switch
+set var date $TCL(lrange ${CLI.OUT} 27 29)
+set var year $TCL(lrange ${CLI.OUT} 31 31)
+set var date $TCL(linsert $date 3 $year)
+set var time $TCL(lrange ${CLI.OUT} 30 30)
+show var date
+show var time
+The following script sorts the FDB (forwarding database) table in descending order:
+
+Copy this code
+set var CLI.OUT " "
+show fdb
+set var x1 $TCL(split ${CLI.OUT} "\n")
+set var x2 $TCL(lsort -decreasing $x1)
+set var output $TCL(join $x2 "\n")
+show var output
+The following script extracts the MAC address given the age of an FDB entry:
+
+Copy this code
+set var CLI.OUT " "
+show fdb
+set var input $TCL(split ${CLI.OUT} "\n")
+set var y1 $TCL(lsearch -glob $input *age*)
+set var y2 $TCL(lindex $input $y1)
+set var y3 $TCL(split $y2 " ")
+set var y4 $TCL(lindex $y3 0)
+show var y4
