@@ -114,5 +114,18 @@ set VAR_BLOCK [split $VAR_PREBLOCK ";"]
 set VAR_MAC [lindex $VAR_BLOCK 1]
 echo $VAR_MAC
 
+set var CLI.OUT " "
+CLI {show system | grep ignore-case "System MAC:"}
+set VAR_RESULT $TCL(split ${CLI.OUT} "\n")
+set VAR_LINE_NUMBER $TCL(lsearch -glob $VAR_RESULT *MAC:*)
+set VAR_LINE_NUMBER [expr {$VAR_LINE_NUMBER + 1}]
+set VAR_TEXT $TCL(lindex $VAR_RESULT $VAR_LINE_NUMBER)
+set VAR_PREBLOCK [string map {"MAC:" "\;"} $VAR_TEXT]
+set VAR_BLOCK [split $VAR_PREBLOCK ";"]
+set VAR_MAC [lindex $VAR_BLOCK 1]
+echo $VAR_MAC
+
+
+
 
 
