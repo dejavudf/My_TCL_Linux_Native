@@ -10,6 +10,8 @@ set var count ($count + 1)
 endwhile
 show vlan
 
+###################################################################################################################
+
 #The following script introduces a 60-second delay when executed:
 set var temp $TCL(after [expr 60 *1000])
 
@@ -23,6 +25,8 @@ set var time $TCL(lrange ${CLI.OUT} 30 30)
 show var date
 show var time
 
+###################################################################################################################
+
 #The following script sorts the FDB (forwarding database) table in descending order:
 set var CLI.OUT " "
 show fdb
@@ -30,6 +34,8 @@ set var x1 $TCL(split ${CLI.OUT} "\n")
 set var x2 $TCL(lsort -decreasing $x1)
 set var output $TCL(join $x2 "\n")
 show var output
+
+###################################################################################################################
 
 #The following script extracts the MAC address given the age of an FDB entry:
 set var CLI.OUT " "
@@ -41,6 +47,8 @@ set var y3 $TCL(split $y2 " ")
 set var y4 $TCL(lindex $y3 0)
 show var y4
 
+###################################################################################################################
+
 #The following script get something (word) and test condition:
 set var CLI.OUT " "
 CLI {show tacacs | include "Admin Status"}
@@ -50,9 +58,8 @@ if {[string match "*enabled*" $CLI.OUTt]} {
     CLI ls
 }
 
-#######################################################################
-# This script demonstrates how to handle command prompts in the script
-#######################################################################
+###################################################################################################################
+ This script demonstrates how to handle command prompts in the script
 create vlan foo
 delete vlan foo
 SAVE config secondary
@@ -70,5 +77,23 @@ SAVE config secondary
    CLI yes
  ENDIF 
 
+###################################################################################################################
+# Scripting supports two style of "if" statements : EXOS CLI style and tcl style
+
+# EXOS CLI stype if statement (case sensitive : NO)
+IF (!$match($isExos,true) ) THEN
+ Echo "$deviceIP is an EXOS switch."
+ELSE 
+ Echo "$deviceIP is NOT an EXOS switch"
+ENDIF
+
+# tcl style if statement (case sensitive : YES)
+if {[string equal $isExos "true"]} {
+   Echo "$deviceIP is an EXOS switch."
+else
+   Echo "$deviceIP is NOT an EXOS switch."
+}
+
+###################################################################################################################
 
 
