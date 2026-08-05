@@ -45,3 +45,11 @@ set var y2 $TCL(lindex $input $y1)
 set var y3 $TCL(split $y2 " ")
 set var y4 $TCL(lindex $y3 0)
 show var y4
+
+set var CLI.OUT " "
+CLI {show tacacs | include "Admin Status"}
+if {[string match "*enabled*" $CLI.OUTt]} {
+    CLI show version
+} elseif {[string match "*disabled*" $CLI.OUTt]} {
+    CLI ls
+}
