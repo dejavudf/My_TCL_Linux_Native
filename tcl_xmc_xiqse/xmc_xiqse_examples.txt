@@ -50,5 +50,25 @@ if {[string match "*enabled*" $CLI.OUTt]} {
     CLI ls
 }
 
+#######################################################################
+# This script demonstrates how to handle command prompts in the script
+#######################################################################
+create vlan foo
+delete vlan foo
+SAVE config secondary
+# handle prompt: Do you want to save configuration to secondary.cfg and overwrite it?    
+# CLI.OUT system variable has response of the previous CLI command (SAVe config secondary)
+# use regex to check if it is prompt, supply response if found
+ regexp {.*overwrite it?.*} ${CLI.OUT} foundit
+  IF ([info exists foundit]) THEN
+   CLI yes
+  ENDIF  
+
+# handle second prompt: this prompt comes after you respond to first prompt.
+ regexp {.*the default database?.*} ${CLI.OUT} foundit2
+  IF ([info exists foundit2]) THEN
+   CLI yes
+ ENDIF 
+
 
 
