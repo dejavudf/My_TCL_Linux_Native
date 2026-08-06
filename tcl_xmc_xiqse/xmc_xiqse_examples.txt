@@ -125,7 +125,11 @@ set VAR_BLOCK [split $VAR_PREBLOCK ";"]
 set VAR_MAC [lindex $VAR_BLOCK 1]
 echo $VAR_MAC
 
+###########################################################################################################
 
+set var_sysname_tmp [string map {"SW_" ""} $deviceName]
+set var_sysname_tmp2 [string map {"-" "_"} $var_sysname_tmp]
+set var_sysname [string map {"." "_"} $var_sysname_tmp2]
 
 
 
