@@ -131,5 +131,23 @@ set var_sysname_tmp [string map {"SW_" ""} $deviceName]
 set var_sysname_tmp2 [string map {"-" "_"} $var_sysname_tmp]
 set var_sysname [string map {"." "_"} $var_sysname_tmp2]
 
+##############################################################################################################
+
+ [ upgrade.xsf ]
+set var temp $TCL(after [expr 60 * 1000])
+set var cli.out " "
+show switch | in Image
+set var output $TCL(split ${cli.out} "\n")
+set var line $TCL(lindex $output 1)
+set var split0 $TCL(split $line ":")
+set var partition $TCL(lindex $split0 1)
+set var TF $TCL(lsearch $partition *primary* )
+if ($TF) then
+       download image 10.67.55.52 summitX-15.6.4.2-patch1-6.xos vr "VR-Mgmt" primary
+elseif
+       download image 10.67.55.52 summitX-15.6.4.2-patch1-6.xos vr "VR-Mgmt" secondary
+endif
+reboot
+
 
 
